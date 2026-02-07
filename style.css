@@ -343,19 +343,7 @@ section,
   margin-bottom: 1rem;
 }
 
-.photo-section .photo-wrapper img {
-  display: block;
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 50%;
-}
 
-.photo-section p {
-  color: var(--text-secondary);
-  margin: 0;
-  font-style: italic;
-}
 h1 {
     color: #ca4889;
     text-align: center; /* заголовок по центру */
