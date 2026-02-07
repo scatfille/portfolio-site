@@ -336,8 +336,13 @@ section,
   box-shadow: var(--shadow-medium);
   border: 4px solid var(--pink-200);
   margin-bottom: 1rem;
-  width: 150px;     
-  height: 150px; 
+ 
+}
+.photo-circle img {
+  width: 100%;            /* фото подстраивается под рамку */
+  height: 100%;
+  object-fit: cover;      /* центрирует и обрезает лишнее */
+  display: block;
 }
 
 
