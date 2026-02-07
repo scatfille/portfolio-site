@@ -232,15 +232,6 @@ input:focus, textarea:focus {
 
 /* ----- Navigation ----- */
 nav {
-<<<<<<< HEAD
-  padding: 1rem 1.5rem;
-  margin-bottom: 1rem;
-}
-
-nav a {
-  margin-right: 1.25rem;
-  font-weight: 600;
-=======
   position: relative;
   z-index: 1;
   max-width: 900px;
@@ -267,7 +258,6 @@ nav a {
 nav a:hover {
   color: var(--pink-700);
   transform: translateY(-1px);
->>>>>>> page-about
 }
 
 /* ----- Footer ----- */
@@ -312,9 +302,9 @@ section,
 .section {
   position: relative;
   z-index: 1;
-<<<<<<< HEAD
-=======
-}/* Навигация */
+}
+
+/* Optional: alternate menu class */
 .menu {
     text-align: center;
     margin-bottom: 30px;
@@ -365,5 +355,4 @@ section,
   color: var(--text-secondary);
   margin: 0;
   font-style: italic;
->>>>>>> page-about
 }
