@@ -327,11 +327,6 @@ section,
     color: #ff66b2;
     transform: scale(1.1);
   }
-/* ----- Portfolio photo section ----- */
-.photo-section {
-  text-align: center;
-  margin-bottom: 2rem;
-}
 
 .photo-section .photo-wrapper {
   display: inline-block;
