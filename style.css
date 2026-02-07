@@ -356,3 +356,8 @@ section,
   margin: 0;
   font-style: italic;
 }
+h1 {
+    color: #ca4889;
+    text-align: center; /* заголовок по центру */
+  }
+  
