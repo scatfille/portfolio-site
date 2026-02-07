@@ -339,8 +339,8 @@ section,
  
 }
 .photo-circle img {
-  width: 100%;            /* фото подстраивается под рамку */
-  height: 100%;
+  width: 200px;            /* фото подстраивается под рамку */
+  height: 200px;
   object-fit: cover;      /* центрирует и обрезает лишнее */
   display: block;
 }
