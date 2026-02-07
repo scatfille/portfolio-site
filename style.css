@@ -328,7 +328,7 @@ section,
     transform: scale(1.1);
   }
 
-.photo-section .photo-wrapper {
+.photo-section  {
   display: inline-block;
   padding: 0.75rem;
   background: var(--bg-card);
@@ -340,7 +340,7 @@ section,
 }
 .photo-circle img {
   width: 200px;            
-  height: 200px;
+  height: 199px;
   object-fit: cover;      
   display: block;
 }
