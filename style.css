@@ -255,12 +255,7 @@ nav a {
   transition: color var(--transition), transform var(--transition);
 }
 
-nav a:hover {
-  color: var(--pink-700);
-  transform: translateY(-1px);
-}
 
-/* ----- Footer ----- */
 footer {
   text-align: center;
   padding: 2rem 1.5rem;
