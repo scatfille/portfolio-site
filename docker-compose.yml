@@ -16,6 +16,7 @@ services:
   app:
     build: .
     container_name: portfolio_site
+    command: node server js
     ports:
       - "3000:3000"
     depends_on:
