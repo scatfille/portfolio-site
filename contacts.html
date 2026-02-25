@@ -1,65 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Contacts - Uliana Korotkova</title>
+  <style>
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    
-    <title>Contacts - Uliana Korotkova</title>
+    .contact-form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .form-error {
+      display: none;
+      margin-top: 0.5rem;
+      color: #a1284a;
+      font-weight: 600;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 18, 23, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+
+    .modal-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .success-modal {
+      width: min(92vw, 460px);
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 20px 45px rgba(209, 72, 111, 0.28);
+      padding: 1.4rem 1.2rem 1.2rem;
+      position: relative;
+      transform: scale(0.92) translateY(10px);
+      opacity: 0;
+      transition: transform 0.28s ease, opacity 0.28s ease;
+    }
+
+    .modal-overlay.is-open .success-modal {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    .success-icon {
+      width: 54px;
+      height: 54px;
+      margin-bottom: 0.7rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffdce7, #ffeef4);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 6px 18px rgba(199, 61, 92, 0.18);
+    }
+
+    .success-icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: #c73d5c;
+      stroke-width: 2.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .success-modal h3 {
+      margin: 0 2rem 0.65rem 0;
+      color: #c73d5c;
+      font-size: 1.2rem;
+    }
+
+    .success-modal p {
+      margin: 0;
+      color: #6b4049;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 0.55rem;
+      right: 0.55rem;
+      width: 34px;
+      height: 34px;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1;
+      cursor: pointer;
+      color: #9e3150;
+      background: #ffe4ec;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background: #ffd2df;
+      transform: scale(1.06);
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="contacts.html">Contacts</a>
-      </nav>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/contacts">Contacts</a>
+  </nav>
 
-    <header>
-        <h1>Contacts</h1>
-    </header>
+  <header>
+    <h1>Contacts</h1>
+  </header>
 
-    <main>
-        <section>
-            <h2>1. Introduction</h2>
-            <p>Hi! I am Uliana Korotkova, an IT student.</p>
-        </section>
+  <main>
+    <section>
+      <h2>1. Introduction</h2>
+      <p>Hi! I am Uliana Korotkova, an IT student.</p>
+    </section>
 
-        <section>
-            <h2>2. Email & Phone</h2>
-            <p>You can reach me at:</p>
-            <ul class="contact-list">
-                <li>Email: <a href="mailto:korotkovauliana8@gmail.com">korotkovauliana8@gmail.com</a></li>
-                <li>Phone: <span class="phone-placeholder">+48574225889</span></li>
-            </ul>
-        </section>
+    <section>
+      <h2>2. Email & Phone</h2>
+      <p>You can reach me at:</p>
+      <ul class="contact-list">
+        <li>Email: <a href="mailto:korotkovauliana8@gmail.com">korotkovauliana8@gmail.com</a></li>
+        <li>Phone: <span class="phone-placeholder">+48574225889</span></li>
+      </ul>
+    </section>
 
-        <section>
-            <h2>3. GitHub & Social</h2>
-            <p>My GitHub profile: <a href="https://github.com/scatfille" target="_blank" rel="noopener noreferrer">https://github.com/scatfille</a></p>
-            <p class="social-placeholders">Social media: LinkedIn, Twitter/X — coming soon.</p>
-        </section>
+    <section>
+      <h2>3. GitHub & Social</h2>
+      <p>My GitHub profile: <a href="https://github.com/scatfille" target="_blank" rel="noopener noreferrer">https://github.com/scatfille</a></p>
+      <p class="social-placeholders">Social media: LinkedIn, Twitter/X - coming soon.</p>
+    </section>
 
-        <section>
-            <h2>4. Learning Status</h2>
-            <p>I am currently studying IT and building my first projects.</p>
-        </section>
+    <section>
+      <h2>4. Learning Status</h2>
+      <p>I am currently studying IT and building my first projects.</p>
+    </section>
 
-        
-        <h1>Contact Me</h1>
-    <form action="/submit" method="POST">
+    <section>
+      <h2>5. Contact Me</h2>
+      <form id="contact-form" class="contact-form" action="/submit" method="POST" novalidate>
         <input type="text" name="name" placeholder="Name" required>
         <input type="email" name="email" placeholder="Email" required>
         <textarea name="message" placeholder="Message" required></textarea>
-        <button type="submit">Submit</button>
-    </form>
+        <button id="submit-btn" type="submit">Submit</button>
+        <p id="form-error" class="form-error">Something went wrong. Please try again.</p>
+      </form>
+    </section>
+  </main>
 
-       
-    </main>
+  <footer>
+    <p>Thank you for visiting my contacts page.</p>
+  </footer>
 
-    <footer>
-        <p>Thank you for visiting my contacts page.</p>
-    </footer>
-=======
- 
+  <div id="success-overlay" class="modal-overlay" aria-hidden="true">
+    <div
+      class="success-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="success-title"
+      aria-describedby="success-text"
+    >
+      <button type="button" id="modal-close" class="modal-close" aria-label="Close confirmation popup">&times;</button>
+      <div class="success-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 6L9 17l-5-5"></path>
+        </svg>
+      </div>
+      <h3 id="success-title">Message Sent</h3>
+      <p id="success-text">Your message has been successfully sent. Thank you!</p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const overlay = document.getElementById('success-overlay');
+    const closeBtn = document.getElementById('modal-close');
+    const errorText = document.getElementById('form-error');
+
+    function openModal() {
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
+      closeBtn.focus();
+      document.addEventListener('keydown', handleEscapeKey);
+    }
+
+    function closeModal() {
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('keydown', handleEscapeKey);
+    }
+
+    function handleEscapeKey(event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+
+    overlay.addEventListener('click', function (event) {
+      if (event.target === overlay) {
+        closeModal();
+      }
+    });
+
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      errorText.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      try {
+        const formData = new FormData(form);
+        const body = new URLSearchParams(formData);
+
+        const response = await fetch(form.action, {
+          method: form.method,
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: body.toString()
+        });
+
+        if (!response.ok) {
+          throw new Error('Request failed');
+        }
+
+        form.reset();
+        openModal();
+      } catch (error) {
+        errorText.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+      }
+    });
+  </script>
+</body>
+</html>
